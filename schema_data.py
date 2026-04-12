@@ -134,9 +134,9 @@ def seed_database(conn):
 if __name__ == "__main__":
 
     conn = sqlite3.connect(":memory:")
-
+    conn.execute("PRAGMA foreign_keys = ON;") 
     build_database(conn)
-
+    seed_database(conn) 
     # IntegrityError demonstration
 
     try:
