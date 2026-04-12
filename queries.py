@@ -47,7 +47,7 @@ def get_playlist_tracks(conn, playlist_name):
 def get_tracks_on_no_playlist(conn):
     cursor = conn.cursor()
     query = """
-    SELECT T.title, A.name, T.duration_seconds
+    SELECT T.track_id, T.title, A.name
     FROM Track AS T
     LEFT JOIN PlaylistTrack AS PT ON T.track_id = PT.track_id
     JOIN Artist AS A ON T.artist_id = A.artist_id
